@@ -5,7 +5,7 @@
       <h1>VUX</h1>
     </div>
     <group title="group demo">
-      <cell title="VUX cell" :value="msg" is-link></cell>
+      <cell title="VUX cell" :value="msg" is-link @click.native="updateUser"></cell>
     </group>
   </div>
 </template>
