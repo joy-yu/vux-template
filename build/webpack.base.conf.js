@@ -6,7 +6,6 @@ const vuxLoader = require('vux-loader')
 
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
-var LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -68,10 +67,7 @@ let webpackConfig = {
         }
       }
     ]
-  },
-  plugins: [
-    new LodashModuleReplacementPlugin
-  ]
+  }
 }
 
 
