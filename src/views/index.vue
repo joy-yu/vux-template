@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="vux-demo">
-      <img class="logo" src="../assets/vux_logo.png">
+      <img class="logo" src="../assets/images/vux_logo.png">
       <h1>VUX</h1>
     </div>
 
@@ -15,7 +15,7 @@
 
 <script>
 import { Group, Cell, Toast } from 'vux'
-import common from '@/assets/js/common.js'
+import {loginModel} from '@/api'
 export default {
   components: {
     Group,
@@ -32,28 +32,16 @@ export default {
   },
 
   methods: {
-    updateUser () {
-      const params = {
-        id: 12345
-      }
-      this.$http.post('/api/v1/user', params)
-          .then(res => {})
-    },
-
     getLoginUserInfo () {
-      common.getLoginUserInfo()
-            .then((res) => {
-              this.userInfo = res.data
-            })
-            .catch(e => {
-              this.info = 'error from!'
-              this.info_show = true
-            })
+      this.$store.commit('showLoading', {text:'加载中...'})
+      loginModel.getLoginUser().then(res => {
+        this.$store.commit('hideLoading')
+      })
     }
   },
 
   mounted () {
-    this.updateUser()
+    this.getLoginUserInfo()
   }
 }
 </script>
@@ -61,7 +49,7 @@ export default {
 <style lang="less">
 .vux-demo {
   text-align: center;
-  color: @blue;
+  color: #6cf;
 
   .logo {
     width: 100px;

@@ -11,6 +11,9 @@ module.exports = {
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
+  globals: {
+    'wx': false
+  },
   // required to lint *.vue files
   plugins: [
     'html'
@@ -22,6 +25,9 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 0,
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+
+    'key-spacing': 0, //键名与:间的空格
+    'comma-dangle': 0 //末尾逗号
   }
 }

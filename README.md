@@ -1,6 +1,6 @@
 # vux模板
 
-> x改，随意用用~ 记得更改请求转发——config/index.js内proxyTable
+> x改，随意用用~
 
 ## Build Setup
 
